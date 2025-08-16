@@ -17,9 +17,6 @@ const Header = ({ recipeList, setRecipeList }) => {
         );
         if (response.data.meals) {
           setRecipeList(response.data.meals);
-        } else {
-          const randomRes = await Axios.get("https://www.themealdb.com/api/json/v1/1/random.php");
-          setRecipeList(randomRes.data.meals);
         }
       }
     } catch (error) {
@@ -56,3 +53,4 @@ const Header = ({ recipeList, setRecipeList }) => {
 };
 
 export default Header;
+
