@@ -10,13 +10,15 @@ const Header = ({ recipeList, setRecipeList }) => {
     try {
       if (!searchString || searchString.trim() === "") {
         const response = await Axios.get("https://www.themealdb.com/api/json/v1/1/random.php");
-        setRecipeList(response.data.meals);
+        const meals = response.data.meals.map(meal => ({ ...meal, random: true }));
+        setRecipeList(meals);
       } else {
         const response = await Axios.get(
           `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchString}`
         );
         if (response.data.meals) {
-          setRecipeList(response.data.meals);
+          const meals = response.data.meals.map(meal => ({ ...meal, random: false }));
+          setRecipeList(meals);
         }
       }
     } catch (error) {
@@ -53,4 +55,3 @@ const Header = ({ recipeList, setRecipeList }) => {
 };
 
 export default Header;
-
