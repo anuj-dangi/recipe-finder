@@ -1,0 +1,53 @@
+.recipeListContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 30px;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+.recipeContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 3px 10px 0 #aaa;
+}
+
+.coverImage {
+    height: 200px;
+}
+
+.recipeName {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin: 10px 0;
+}
+
+.ingredientsText {
+    font-size: 18px;
+    border: solid 1px green;
+    color: black;
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: green;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.seeMoreText {
+    font-size: 18px;
+    border: solid 1px red;
+    color: black;
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: red;
+    text-align: center;
+    margin-bottom: 12px;
+}
