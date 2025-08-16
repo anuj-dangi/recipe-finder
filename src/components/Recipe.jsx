@@ -3,18 +3,15 @@ import "../css/recipe.css";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
 
 const RecipeListContainer = ({ recipeList }) => {
-
   const [openIngredients, setOpenIngredients] = useState(false);
   const [openRecipe, setOpenRecipe] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
-  // Open Ingredients dialog
   const handleOpenIngredients = (recipe) => {
     setSelectedRecipe(recipe);
     setOpenIngredients(true);
   };
 
-  // Open Recipe Instructions dialog
   const handleOpenRecipe = (recipe) => {
     setSelectedRecipe(recipe);
     setOpenRecipe(true);
@@ -26,7 +23,6 @@ const RecipeListContainer = ({ recipeList }) => {
     setOpenRecipe(false);
   };
 
-  // Helper: extract ingredients + measures
   const getIngredients = (recipe) => {
     let ingredients = [];
     for (let i = 1; i <= 20; i++) {
@@ -43,6 +39,10 @@ const RecipeListContainer = ({ recipeList }) => {
     <div className="recipeListContainer">
       {recipeList && recipeList.map((recipeObj) => (
         <div key={recipeObj.idMeal} className="recipeContainer">
+          {recipeObj.random && (
+            <div className="randomLabel">Today's Random Recipe</div>
+          )}
+
           <img className="coverImage" src={recipeObj.strMealThumb} alt={recipeObj.strMeal} />
           <span className="recipeName">{recipeObj.strMeal}</span>
 
@@ -57,10 +57,13 @@ const RecipeListContainer = ({ recipeList }) => {
           <span className="seeVideo" onClick={() => window.open(recipeObj.strYoutube, "_blank")}>
             See Video
           </span>
+
+          {recipeObj.random && (
+            <div className="searchMoreLabel">Search for more recipes</div>
+          )}
         </div>
       ))}
 
-      {/* Ingredients Dialog */}
       <Dialog open={openIngredients} onClose={handleClose} maxWidth="sm" fullWidth>
         {selectedRecipe && (
           <>
@@ -90,7 +93,6 @@ const RecipeListContainer = ({ recipeList }) => {
         )}
       </Dialog>
 
-      {/* Complete Recipe Dialog */}
       <Dialog open={openRecipe} onClose={handleClose} maxWidth="sm" fullWidth>
         {selectedRecipe && (
           <>
