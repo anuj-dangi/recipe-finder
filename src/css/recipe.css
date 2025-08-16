@@ -51,3 +51,38 @@
     text-align: center;
     margin-bottom: 12px;
 }
+
+.seeVideo {
+    font-size: 18px;
+    border: solid 1px black;
+    color: black;
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: black;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.ingredientsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.ingredientsTable th,
+.ingredientsTable td {
+  border: 1px solid #ccc;  /* adds lines */
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.ingredientsTable th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.ingredientsTable tr:nth-child(even) {
+  background-color: #fafafa; /* zebra striping */
+}
